@@ -4,7 +4,7 @@ export function About() {
   return (
     <div>
       <h1>About Us</h1>
-      <p>gfrnrgierugn</p>
+      <p>learn react</p>
     </div>
   );
 }
