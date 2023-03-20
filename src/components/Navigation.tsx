@@ -13,7 +13,6 @@ export function Navigation() {
         <NavLink className="App-link" to="/about">
           About US
         </NavLink>
-        <input type="text" className="search-field" />
       </header>
     </nav>
   );

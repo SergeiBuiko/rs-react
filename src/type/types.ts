@@ -15,3 +15,7 @@ export interface IProduct {
     inCart?: boolean;
   }[];
 }
+
+export interface ISearchBar {
+  inputValue: string;
+}

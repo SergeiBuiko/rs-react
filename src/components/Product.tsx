@@ -8,11 +8,8 @@ import './product.css';
 
 import React from 'react';
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-type CarsProps = {};
-
-class Product extends React.Component<CarsProps, IProduct> {
-  constructor(props: CarsProps) {
+class Product extends React.Component<object, IProduct> {
+  constructor(props: object) {
     super(props);
     this.state = {
       product: products,
