@@ -50,16 +50,19 @@ module.exports = {
       },
     ],
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    // 'import/resolver': {
+    //   node: {
+    //     extensions: ['.js', '.jsx'],
+    //   },
+    // },
+    'import/resolver': {
+      node: [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
+    },
   },
   settings: {
     react: {
       pragma: 'React',
       version: 'detect',
-    },
-    'import/resolver': {
-      node: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      },
     },
   },
 };

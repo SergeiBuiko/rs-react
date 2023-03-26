@@ -1,8 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable react/destructuring-assignment */
-// eslint-disable-next-line import/no-unresolved
 import { IProduct } from 'type/types';
-// eslint-disable-next-line import/no-unresolved
 import { products } from 'constants/products';
 import './product.css';
 
