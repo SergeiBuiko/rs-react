@@ -17,7 +17,7 @@ class Product extends React.Component<object, IProduct> {
       <main className="main-content">
         {this.state.product.map((el) => (
           <div key={el.id} className="product-card">
-            <img src={el.images[0]} alt="asas" className="product__image" />
+            <img src={el.images[0]} alt="product_image" className="product__image" />
             <h3>{el.title}</h3>
             <p>
               <span className="section_title">Description: </span>

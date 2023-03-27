@@ -1,6 +1,5 @@
-// eslint-disable-next-line import/no-unresolved
 import Product from 'components/Product';
-// eslint-disable-next-line import/no-unresolved
+
 import SearchBar from 'components/SearchBar';
 import React from 'react';
 

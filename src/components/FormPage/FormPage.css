@@ -1,0 +1,10 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 50vh;
+}
+
+.form__label {
+  margin-right: 5px;
+}

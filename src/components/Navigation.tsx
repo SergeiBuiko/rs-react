@@ -13,6 +13,9 @@ export function Navigation() {
         <NavLink className="App-link" to="/about">
           About US
         </NavLink>
+        <NavLink className="App-link" to="/form">
+          Form
+        </NavLink>
       </header>
     </nav>
   );

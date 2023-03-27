@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// eslint-disable-next-line import/no-unresolved
 import { ISearchBar } from 'type/types';
 import './SearchBar.css';
 
