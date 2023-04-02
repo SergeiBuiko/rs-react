@@ -1,40 +1,26 @@
-import React, { Component } from 'react';
-import { ISearchBar } from 'type/types';
+import React, { useEffect, useState } from 'react';
 import './SearchBar.css';
 
-class SearchBar extends Component<object, ISearchBar> {
-  constructor(props: object) {
-    super(props);
-    this.state = {
-      inputValue: localStorage.getItem('searchValue') || '',
-    };
-  }
+const SearchBar = () => {
+  const [input, setInput] = useState(() => {
+    const initialValue = JSON.parse(localStorage.getItem('searchValue') as string);
+    return initialValue || null;
+  });
 
-  handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    const {
-      target: { value: inputValue },
-    } = event;
-    this.setState({ inputValue });
-    localStorage.setItem('searchValue', inputValue);
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInput(event.target.value);
   };
 
-  render() {
-    const { inputValue } = this.state;
-    return (
-      <div>
-        <label htmlFor="input-field">
-          Enter a product:
-          <input
-            className="search-field"
-            type="text"
-            id="input-field"
-            value={inputValue}
-            onChange={this.handleChange}
-          />
-        </label>
-      </div>
-    );
-  }
-}
+  useEffect(() => localStorage.setItem('searchValue', JSON.stringify(input)), [input]);
+
+  return (
+    <div>
+      <label>
+        Enter a product:
+        <input className="search-field" type="text" value={input} onChange={handleChange} />
+      </label>
+    </div>
+  );
+};
 
 export default SearchBar;

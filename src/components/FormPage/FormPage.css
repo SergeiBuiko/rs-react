@@ -18,13 +18,13 @@
 .submit__button {
   width: 120px;
   height: 30px;
-  cursor: pointer;
   border-radius: 5px;
   border: none;
   background-color: #046a86;
   transition: all 0.3s;
 }
 
-.submit__button:hover {
+.submit__button:enabled:hover {
   background-color: #61dafb;
+  cursor: pointer;
 }
