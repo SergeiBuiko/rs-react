@@ -1,4 +1,5 @@
-.form {
+.form,
+.created-card {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -27,4 +28,14 @@
 .submit__button:enabled:hover {
   background-color: #61dafb;
   cursor: pointer;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+}
+
+.created-card {
+  height: auto;
+  width: 20%;
 }

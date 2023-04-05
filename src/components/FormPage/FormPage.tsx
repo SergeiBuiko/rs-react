@@ -1,63 +1,71 @@
 import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 
 import './FormPage.css';
 
-interface UseFormInputs {
-  name?: string;
-  data?: string;
-  country?: string;
-  // lastName?: string;
-}
+// type FormValues = {
+//   name: string;
+//   img: string;y
+//   district: string;
+//   area: string;
+//   population: string;
+//   description: string;
+//   date?: Date;
+//   fileImg?: HTMLInputElement;
+//   beenThere?: boolean;
+//   wantAName?: boolean;
+//   namePerson?: string;
+// };
 
-interface IPhoto {
-  photo: {
-    name: string;
-  };
+type FormValues = {
+  name: string;
+  date: string;
+  country: string;
+  email: boolean;
+  gender: string;
+  photoUpload?: string;
+};
+
+interface ICard {
+  name: string;
+  date: string;
+  country: string;
+  email: boolean;
+  gender: string;
+  photoUpload?: string;
 }
 
 const FormPage = () => {
-  const [uploadedPhotos, setUploadedPhotos] = useState<IPhoto[]>([]);
+  const [cards, setCards] = useState<ICard[]>([]);
 
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors, isValid },
-  } = useForm({ mode: 'onBlur' });
+  } = useForm<FormValues>({ mode: 'onBlur' });
 
-  // handleSubmit = (event: React.FormEvent) => {
-  //   event.preventDefault();
-  // };
-  const onSubmit = (data: UseFormInputs) => {
+  const onSubmit: SubmitHandler<FormValues> = (data) => {
     console.log(data);
-    // alert(JSON.stringify(data));
-    reset();
-  };
 
-  // const file = data.selectedfile[0];
-  // if (file.type != 'application/pdf') {
-  //   setError('selectedfile', {
-  //     type: 'filetype',
-  //     message: 'Only PDFs are valid.',
-  //   });
-  //   return;
-  // }
+    setCards([
+      ...cards,
+      //   {
+      //     ...data,
+      //     photoUpload: `${URL.createObjectURL(data.photoUpload: ? data.photoUpload[0] : '')}`,
+      //   },
+      data,
+    ]);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleUpload = (e: any) => {
-    const files = e.target.files[0];
-
-    setUploadedPhotos([...uploadedPhotos, files]);
-    console.log(uploadedPhotos);
-
-    // setPhotoPreview(
-    //   uploadedPhotos.map((photo) =>
+    // setCards(
+    //   cards.map((photo) =>
     //     Object.assign(photo, {
-    //       preview: URL.createObjectURL(photo),
+    //       photoUpload: URL.createObjectURL(photo.photoUpload),
     //     })
     //   )
     // );
+
+    reset();
   };
 
   return (
@@ -140,26 +148,45 @@ const FormPage = () => {
           <span>Upload file: </span>
           <input
             type="file"
-            {...register('testPhotos', {
+            {...register('photoUpload', {
               required: 'This is required',
-              validate: {
-                lessThan10MB: (files) => files[0]?.size < 30000000 || 'Max size 3mb',
+              // validate: {
+              //   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              //   lessThan10MB: (files: any) => files[0].size < 30000000 || 'Max size 3mb',
 
-                acceptedFormats: (files) =>
-                  ['image/jpeg', 'image/png', 'image/gif'].includes(files[0]?.type) ||
-                  'Only PNG, JPEG e GIF',
-              },
+              //   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              //   acceptedFormats: (files: any) =>
+              //     ['image/jpeg', 'image/png', 'image/gif'].includes(files[0]?.type) ||
+              //     'Only PNG, JPEG e GIF',
+              // },
             })}
-            onChange={handleUpload}
           />
-          {errors.testPhotos && <p>{errors.testPhotos.message?.toString()}</p>}
+          {errors.photoUpload && <p>{errors.photoUpload.message?.toString()}</p>}
         </label>
         <input className="submit__button" type="submit" value="Submit" disabled={!isValid} />
       </form>
-      {/* {uploadedPhotos.map((photo, i) => (
-        <p key={i}>{photo.photo.name}</p>
-      ))} */}
-      {/* <p>{uploadedPhotos}</p> */}
+
+      <div className="cards-container">
+        {/* <p>Submitted Data:</p> */}
+        {cards.map((el, i) => {
+          return (
+            <div className="created-card" key={i}>
+              <p>
+                Name: <span>{el.name}</span>
+              </p>
+              <p>
+                Date: <span>{el.date}</span>
+              </p>
+              <p>
+                Country: <span>{el.country}</span>
+              </p>
+              <p>
+                Gender: <span>{el.gender}</span>
+              </p>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
