@@ -1,39 +1,8 @@
 import React, { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { FormValues, ICard } from 'types/types';
 
 import './FormPage.css';
-
-// type FormValues = {
-//   name: string;
-//   img: string;y
-//   district: string;
-//   area: string;
-//   population: string;
-//   description: string;
-//   date?: Date;
-//   fileImg?: HTMLInputElement;
-//   beenThere?: boolean;
-//   wantAName?: boolean;
-//   namePerson?: string;
-// };
-
-type FormValues = {
-  name: string;
-  date: string;
-  country: string;
-  email: boolean;
-  gender: string;
-  photoUpload?: string;
-};
-
-interface ICard {
-  name: string;
-  date: string;
-  country: string;
-  email: boolean;
-  gender: string;
-  photoUpload?: string;
-}
 
 const FormPage = () => {
   const [cards, setCards] = useState<ICard[]>([]);
@@ -46,24 +15,13 @@ const FormPage = () => {
   } = useForm<FormValues>({ mode: 'onBlur' });
 
   const onSubmit: SubmitHandler<FormValues> = (data) => {
-    console.log(data);
-
     setCards([
       ...cards,
-      //   {
-      //     ...data,
-      //     photoUpload: `${URL.createObjectURL(data.photoUpload: ? data.photoUpload[0] : '')}`,
-      //   },
-      data,
+      {
+        ...data,
+        photoUpload: `${URL.createObjectURL(data.photoUpload[0])}`,
+      },
     ]);
-
-    // setCards(
-    //   cards.map((photo) =>
-    //     Object.assign(photo, {
-    //       photoUpload: URL.createObjectURL(photo.photoUpload),
-    //     })
-    //   )
-    // );
 
     reset();
   };
@@ -109,7 +67,7 @@ const FormPage = () => {
         </label>
         <p style={{ color: 'red' }}>{errors.country?.message?.toString()}</p>
         <label>
-          Send product description to e-mail:{' '}
+          Send product description to e-mail:
           <input
             type="checkbox"
             {...register('email', {
@@ -150,24 +108,22 @@ const FormPage = () => {
             type="file"
             {...register('photoUpload', {
               required: 'This is required',
-              // validate: {
-              //   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              //   lessThan10MB: (files: any) => files[0].size < 30000000 || 'Max size 3mb',
+              validate: {
+                lessThan10MB: (files) => files[0].size < 3145728 || 'Max size 3mb',
 
-              //   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              //   acceptedFormats: (files: any) =>
-              //     ['image/jpeg', 'image/png', 'image/gif'].includes(files[0]?.type) ||
-              //     'Only PNG, JPEG e GIF',
-              // },
+                acceptedFormats: (files) =>
+                  ['image/jpeg', 'image/png', 'image/gif'].includes(files[0]?.type) ||
+                  'Only PNG, JPEG e GIF',
+              },
             })}
           />
-          {errors.photoUpload && <p>{errors.photoUpload.message?.toString()}</p>}
+          {errors.photoUpload && (
+            <p style={{ color: 'red' }}>{errors.photoUpload.message?.toString()}</p>
+          )}
         </label>
         <input className="submit__button" type="submit" value="Submit" disabled={!isValid} />
       </form>
-
       <div className="cards-container">
-        {/* <p>Submitted Data:</p> */}
         {cards.map((el, i) => {
           return (
             <div className="created-card" key={i}>
@@ -180,9 +136,15 @@ const FormPage = () => {
               <p>
                 Country: <span>{el.country}</span>
               </p>
+              {el.email && (
+                <p>
+                  <span>Send product description to e-mail: yes </span>
+                </p>
+              )}
               <p>
                 Gender: <span>{el.gender}</span>
               </p>
+              <img src={el.photoUpload} className="upload-image" />
             </div>
           );
         })}

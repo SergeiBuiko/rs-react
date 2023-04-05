@@ -37,5 +37,11 @@
 
 .created-card {
   height: auto;
-  width: 20%;
+  width: auto;
+  overflow: hidden;
+}
+
+.upload-image {
+  max-width: 300px;
+  background-size: cover;
 }

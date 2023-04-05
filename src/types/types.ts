@@ -20,3 +20,21 @@ export interface IData {
   skip: number;
   total: number;
 }
+
+export type FormValues = {
+  name: string;
+  date: string;
+  country: string;
+  email: boolean;
+  gender: string;
+  photoUpload: File[];
+};
+
+export interface ICard {
+  name: string;
+  date: string;
+  country: string;
+  email: boolean;
+  gender: string;
+  photoUpload?: string;
+}

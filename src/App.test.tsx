@@ -4,7 +4,9 @@ import App from './App';
 
 test('Description', () => {
   render(<App />);
-  // const linkElement = screen.getByText(/learn react/i);
-  // expect(linkElement).toBeInTheDocument();
+  const linkElement = screen.getByText(/Current/i);
+  expect(linkElement).toBeInTheDocument();
   screen.debug();
+  const input = screen.getByRole('textbox');
+  expect(input).toBeInTheDocument();
 });

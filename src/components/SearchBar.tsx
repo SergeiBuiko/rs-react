@@ -4,7 +4,7 @@ import './SearchBar.css';
 const SearchBar = () => {
   const [input, setInput] = useState(() => {
     const initialValue = JSON.parse(localStorage.getItem('searchValue') as string);
-    return initialValue || null;
+    return initialValue || '';
   });
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
