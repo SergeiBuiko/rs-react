@@ -39,12 +39,12 @@ export interface ICard {
   photoUpload?: string;
 }
 
-export interface IPhotos {
+export interface IPhoto {
   id: string;
   owner: string;
   secret: string;
   server: string;
-  farm: 3;
+  farm: number;
   title: string;
   ispublic: number;
   isfriend: number;
@@ -53,10 +53,14 @@ export interface IPhotos {
   ownername: string;
 }
 
-export interface IData {
+export interface IPhotos {
   page: number;
   pages: number;
   perpage: number;
   total: number;
-  photo: IPhotos[];
+  photo: IPhoto[];
+}
+
+export interface IData {
+  photos: IPhotos;
 }

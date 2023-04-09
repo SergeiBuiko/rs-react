@@ -1,14 +1,19 @@
-import Product from 'components/Product';
+// import Photo from 'components/Photos';
+// import Product from 'components/Photos';
 
-import SearchBar from 'components/SearchBar';
+import Photos from 'components/Photos';
+// import SearchBar from 'components/SearchBar';
 import React from 'react';
-
-export function MainPage() {
+interface IModalProps {
+  modalActive: boolean;
+  setModalActive: React.Dispatch<React.SetStateAction<boolean>>;
+}
+export function MainPage({ modalActive, setModalActive }: IModalProps) {
   return (
     <div>
-      <SearchBar />
-      <h1>Current product list</h1>
-      <Product />
+      {/* <SearchBar /> */}
+      <h1>Current search list</h1>
+      <Photos modalActive={modalActive} setModalActive={setModalActive} />
     </div>
   );
 }

@@ -11,7 +11,7 @@ const SearchBar = () => {
     setInput(event.target.value);
   };
 
-  useEffect(() => localStorage.setItem('searchValue', JSON.stringify(input)), [input]);
+  useEffect(() => localStorage.setItem('searchValue', JSON.stringify(input)), [input]); // засетить серч папраметры в адресную строку
 
   return (
     <div>
