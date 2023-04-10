@@ -14,13 +14,6 @@ export interface IProduct {
   inCart?: boolean;
 }
 
-// export interface IData {
-//   limit: number;
-//   products: IProduct[];
-//   skip: number;
-//   total: number;
-// }
-
 export type FormValues = {
   name: string;
   date: string;
@@ -28,6 +21,10 @@ export type FormValues = {
   email: boolean;
   gender: string;
   photoUpload: File[];
+};
+
+export type SearchValues = {
+  search: string;
 };
 
 export interface ICard {
@@ -63,4 +60,10 @@ export interface IPhotos {
 
 export interface IData {
   photos: IPhotos;
+}
+
+export interface IModalProps {
+  modalActive: boolean;
+  setModalActive: React.Dispatch<React.SetStateAction<boolean>>;
+  photo?: IPhoto;
 }

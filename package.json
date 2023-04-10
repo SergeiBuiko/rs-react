@@ -22,7 +22,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint --ext .ts,.tsx src/",
-    "lint:fix": "eslint --ext .ts,.tsx src/ --fix"
+    "lint:fix": "eslint --ext .ts,.tsx src/ --fix",
+    "coverage": "npm run test -- --coverage"
   },
   "eslintConfig": {
     "extends": [
@@ -44,9 +45,11 @@
   },
   "devDependencies": {
     "@hookform/resolvers": "^3.0.0",
+    "@types/enzyme": "^3.10.12",
     "@typescript-eslint/eslint-plugin": "^5.55.0",
     "@typescript-eslint/parser": "^5.55.0",
     "axios": "^0.27.2",
+    "enzyme": "^3.11.0",
     "eslint": "^8.36.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.7.0",

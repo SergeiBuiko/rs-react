@@ -1,19 +1,11 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios, { AxiosError } from 'axios';
-import { IData, IPhoto } from '../types/types';
+import { IData } from '../types/types';
 import { API_KEY, BASE_API_URL } from 'constants/const';
 
-// interface SearchParamsProps {
-//   searchParams: () => void;
-// }
-
 const useFetchPhoto = () => {
-  // const [allProd, setAllProd] = useState<IProduct[]>([]);
-  // const [allPhoto, setAllPhoto] = useState<IPhoto[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  // const [searchParam, setSearchParam] = useState('');
 
   // interface IURLParams {
   //   method: string | Record<string, string>;
@@ -52,7 +44,6 @@ const useFetchPhoto = () => {
       const response = await axios.get<IData>(`${BASE_API_URL}${parameters}`);
       setLoading(false);
       console.log(response.data.photos.photo);
-
       return response.data.photos.photo;
     } catch (event: unknown) {
       const err = event as AxiosError;
