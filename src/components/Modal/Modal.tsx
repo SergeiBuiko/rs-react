@@ -18,6 +18,10 @@ function Modal({ photo, modalActive, setModalActive }: IModalProps) {
           <span className="modal_title">Title: </span>
           {photo?.title}
         </p>
+        <p>
+          <span className="modal_title">Owner name: </span>
+          {photo?.ownername}
+        </p>
         <div className="modal__close" onClick={() => setModalActive(false)}>
           ×
         </div>

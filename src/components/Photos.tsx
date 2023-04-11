@@ -33,7 +33,7 @@ const Photos = () => {
   }, [input]);
 
   return (
-    <div>
+    <div className="photos__container">
       <div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <span>Enter your request: </span>
@@ -43,12 +43,18 @@ const Photos = () => {
           </button>
         </form>
       </div>
+      {loading ? (
+        <div className="spinner-block">
+          <div className="spinner spinner-1"></div>
+        </div>
+      ) : (
+        <main className="main-content">
+          {photos?.map((photo) => (
+            <Photo key={photo.id} photo={photo} />
+          ))}
+        </main>
+      )}
       {error && <p className="error">Error loadind</p>}
-      <main className="main-content">
-        {photos?.map((photo) => (
-          <Photo key={photo.id} photo={photo} />
-        ))}
-      </main>
     </div>
   );
 };
