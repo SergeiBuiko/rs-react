@@ -11,7 +11,7 @@ function Modal({ photo, modalActive, setModalActive }: IModalProps) {
       <div className="modal__content" onClick={(e) => e.stopPropagation()}>
         <img
           src={`https://live.staticflickr.com/${photo?.server}/${photo?.id}_${photo?.secret}.jpg`}
-          alt="product_image"
+          alt="photo_image"
           className="modal__image"
         />
         <p className="modal__info">

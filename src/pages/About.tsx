@@ -8,4 +8,3 @@ export function About() {
     </div>
   );
 }
-// export { About };

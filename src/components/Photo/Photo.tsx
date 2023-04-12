@@ -13,7 +13,7 @@ function Photo({ photo }: IPhotoProps) {
     <div className="product-card" onClick={() => setModalActive(!modalActive)}>
       <img
         src={`https://live.staticflickr.com/${photo?.server}/${photo?.id}_${photo?.secret}.jpg`}
-        alt="product_image"
+        alt="photo_image"
         className="product__image"
       />
       <p>

@@ -23,7 +23,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint --ext .ts,.tsx src/",
     "lint:fix": "eslint --ext .ts,.tsx src/ --fix",
-    "coverage": "npm run test -- --coverage"
+    "coverage": "react-scripts test --coverage --watchAll=false"
   },
   "eslintConfig": {
     "extends": [
@@ -45,6 +45,7 @@
   },
   "devDependencies": {
     "@hookform/resolvers": "^3.0.0",
+    "@testing-library/react-native": "^12.0.1",
     "@types/enzyme": "^3.10.12",
     "@typescript-eslint/eslint-plugin": "^5.55.0",
     "@typescript-eslint/parser": "^5.55.0",
@@ -61,6 +62,7 @@
     "match-sorter": "^6.3.1",
     "prettier": "2.8.4",
     "react-hook-form": "^7.43.9",
+    "react-native-web": "^0.19.2",
     "react-router-dom": "^6.9.0",
     "sort-by": "^1.2.0"
   }
