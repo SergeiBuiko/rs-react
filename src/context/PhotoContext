@@ -1,0 +1,21 @@
+// import { createContext, SetStateAction } from 'react';
+// import { useState } from 'react';
+// // import { ICars } from '../types/types';
+
+// interface IPhotoContext {
+//   photoSearch: string;
+//   setInputSearch: (value: SetStateAction<string>) => void;
+// }
+
+// // eslint-disable-next-line prettier/prettier
+// export const PhotoContext = createContext<IPhotoContext>({
+//   photoSearch: '',
+//   // eslint-disable-next-line prettier/prettier
+//   setInputSearch: () => {},
+// });
+
+// export const PhotoState = ({ children }: { children: React.ReactNode }) => {
+//   const [inputSearch, setInputSearch] = useState('');
+
+//   return <PhotoContext value={(inputSearch, setInputSearch)}>{children}</PhotoContext>;
+// };

@@ -1,0 +1,47 @@
+.form,
+.created-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 40vh;
+  width: 30%;
+  box-shadow: rgb(0 0 0 / 10%) 0px 2px 5px;
+  border-radius: 10px;
+  background-color: white;
+  margin: 60px auto;
+}
+
+.form__label {
+  margin-right: 15px;
+}
+
+.submit__button {
+  width: 120px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  background-color: #046a86;
+  transition: all 0.3s;
+}
+
+.submit__button:enabled:hover {
+  background-color: #61dafb;
+  cursor: pointer;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: center;
+}
+
+.created-card {
+  height: auto;
+  width: auto;
+  overflow: hidden;
+}
+
+.upload-image {
+  max-width: 300px;
+  background-size: cover;
+}
