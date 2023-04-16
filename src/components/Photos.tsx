@@ -4,6 +4,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 
 import useFetchPhoto from 'hooks/useFetchPhoto';
 import Photo from './Photo/Photo';
+
 import { IPhoto, SearchValues } from 'types/types';
 
 import './Photos.css';
