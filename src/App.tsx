@@ -1,6 +1,5 @@
 import React from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-
 import { MainPage } from './pages/MainPage';
 import { About } from './pages/About';
 import { NotFound } from './pages/NotFound';

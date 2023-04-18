@@ -1,30 +1,31 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-// import { IUser } from 'components/models/IUser';
 import { IPhoto } from 'types/types';
 
 interface IUserState {
-  // users: IUser[];
   photo: IPhoto[];
   isLoading: boolean;
   error: string;
+  searchValue: string;
 }
 
 const initialState: IUserState = {
-  // users: [],
   photo: [],
   isLoading: false,
   error: '',
+  searchValue: 'audi',
 };
 
-export const userSlice = createSlice({
+export const photoSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
+    setSearchValue(state, action: PayloadAction<{ value: string }>) {
+      state.searchValue = action.payload.value;
+    },
     useFetching(state) {
       state.isLoading = true;
     },
     useFetchingSuccess(state, action: PayloadAction<IPhoto[]>) {
-      // useFetchingSuccess(state, action: PayloadAction<IPhoto[]>) {
       state.isLoading = false;
       state.error = '';
       state.photo = action.payload;
@@ -35,5 +36,5 @@ export const userSlice = createSlice({
     },
   },
 });
-
-export default userSlice.reducer;
+export const { setSearchValue } = photoSlice.actions;
+export default photoSlice.reducer;
