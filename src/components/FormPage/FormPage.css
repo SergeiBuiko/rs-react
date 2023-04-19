@@ -10,6 +10,7 @@
   border-radius: 10px;
   background-color: white;
   margin: 60px auto;
+  padding: 15px;
 }
 
 .form__label {
@@ -44,4 +45,8 @@
 .upload-image {
   max-width: 300px;
   background-size: cover;
+}
+
+.card-caption {
+  font-weight: 600;
 }

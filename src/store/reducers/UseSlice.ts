@@ -1,14 +1,14 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { IPhoto } from 'types/types';
 
-interface IUserState {
+interface IPhotoState {
   photo: IPhoto[];
   isLoading: boolean;
   error: string;
   searchValue: string;
 }
 
-const initialState: IUserState = {
+const initialState: IPhotoState = {
   photo: [],
   isLoading: false,
   error: '',
