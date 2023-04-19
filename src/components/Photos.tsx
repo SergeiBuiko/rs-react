@@ -43,18 +43,6 @@ function Photos() {
           </button>
         </form>
       </div>
-      {/* <form onSubmit={handleSubmit}>
-        <input
-          // className={style.input}
-          type="text"
-          onChange={(e) => setInput(e.target.value)}
-          value={input}
-          placeholder="press enter to submit"
-        />
-        <button type="submit" className="btn-submit">
-          {isLoading ? 'Loading...' : 'Search'}
-        </button>
-      </form> */}
       {isLoading ? (
         <div className="spinner-block">
           <div className="spinner spinner-1"></div>

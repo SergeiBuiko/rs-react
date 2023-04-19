@@ -20,7 +20,6 @@ export type FormValues = {
   country: string;
   email: boolean;
   gender: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   photoUpload: string;
 };
 

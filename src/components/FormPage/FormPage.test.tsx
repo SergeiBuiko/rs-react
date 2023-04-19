@@ -11,7 +11,6 @@ describe('FormPage', () => {
         <FormPage />
       </Provider>
     );
-    // (<FormPage />);
     expect(screen.getByText(/Product name/i)).toBeInTheDocument();
     expect(screen.getByText(/Production date/i)).toBeInTheDocument();
   });
