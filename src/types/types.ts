@@ -20,7 +20,7 @@ export type FormValues = {
   country: string;
   email: boolean;
   gender: string;
-  photoUpload: File[];
+  photoUpload: string;
 };
 
 export type SearchValues = {
