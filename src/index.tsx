@@ -1,9 +1,23 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
 import './index.css';
+// import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import { setupStore } from 'store/store';
+import ReactDOM from 'react-dom';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+// import { render } from '@testing-library/react';
+export const store = setupStore();
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
-root.render(<App />);
-reportWebVitals();
+// render(
+//   <Provider store={store}>
+//     <App />
+//   </Provider>
+// );
+// reportWebVitals();
+
+ReactDOM.hydrate(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
