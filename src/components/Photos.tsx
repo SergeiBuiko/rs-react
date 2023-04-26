@@ -20,6 +20,7 @@ function Photos() {
   useEffect(() => {
     dispatch(fetchImage(searchValue));
   }, [searchValue]);
+
   console.log(searchValue);
 
   const onSubmit: SubmitHandler<SearchValues> = () => {
